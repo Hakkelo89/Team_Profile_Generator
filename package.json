@@ -1,0 +1,23 @@
+{
+  "name": "team_profile_generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "Jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hakkelo89/Team_Profile_Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hakkelo89/Team_Profile_Generator/issues"
+  },
+  "homepage": "https://github.com/Hakkelo89/Team_Profile_Generator#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^8.0.0"
+  }
+}
