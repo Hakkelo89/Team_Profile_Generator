@@ -4,3 +4,12 @@ const Manager = require("./utils/constructor/Manager");
 const Employee = require("./utils/constructor/Employee");
 const Engineer = require("./utils/constructor/Engineer");
 const Intern = require("./utils/constructor/Intern");
+
+const getAnswers = async (questions) => {
+  const answers = await inquirer.prompt(questions);
+  return answers;
+};
+
+const init = async () => {};
+
+init();
