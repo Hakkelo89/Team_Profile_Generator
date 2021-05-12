@@ -3,7 +3,8 @@ class Employee {
     this.name = name;
     this.id = id;
     this.email = email;
-    this.github = this.github;
+    this.github = github;
+    this.role = role;
   }
   getName() {
     return this.name;
@@ -18,7 +19,7 @@ class Employee {
     return this.github;
   }
   getRole() {
-    return "Employee";
+    return "Engineer";
   }
 }
-module.exports = Employee;
+module.exports = Engineer;

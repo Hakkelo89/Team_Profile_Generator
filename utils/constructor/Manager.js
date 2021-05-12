@@ -3,6 +3,7 @@ class Manager {
     this.name = name;
     this.id = id;
     this.email = email;
+    this.role = role;
     this.officeNumber = this.officeNumber;
   }
   getName() {

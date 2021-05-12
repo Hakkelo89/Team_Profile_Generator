@@ -4,6 +4,7 @@ class Intern {
     this.id = id;
     this.email = email;
     this.school = school;
+    this.role = role;
   }
   getName() {
     return this.name;
