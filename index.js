@@ -3,9 +3,9 @@ const inquirer = require("inquirer");
 const generateHTML = require("./src/utils/generateHTML");
 
 const Manager = require("./src/lib/Manager");
-const Employee = require("./src/lib/Employee");
 const Engineer = require("./src/lib/Engineer");
 const Intern = require("./src/lib/Intern");
+const Employee = require("./src/lib/Employee");
 
 const employees = [];
 
@@ -141,6 +141,7 @@ const createIntern = async () => {
   console.log(internAnswers);
   const intern = new Intern(internAnswers);
   employees.push(intern);
+  generateHTML(employees);
 };
 
 init();
