@@ -2,17 +2,16 @@ const inquirer = require("inquirer");
 
 const generateHTML = require("./src/utils/generateHTML");
 
-const Manager = require("./utils/lib/Manager");
-const Employee = require("./utils/lib/Employee");
-const Engineer = require("./utils/lib/Engineer");
-const Intern = require("./utils/lib/Intern");
+const Manager = require("./src/lib/Manager");
+const Employee = require("./src/lib/Employee");
+const Engineer = require("./src/lib/Engineer");
+const Intern = require("./src/lib/Intern");
 
 const getAnswers = async (questions) => {
   const answers = await inquirer.prompt(questions);
   return answers;
 };
 
-// init function will generate html, write to file
 const init = async () => {
   await createManager();
 
@@ -25,7 +24,7 @@ const init = async () => {
         choices: [
           { name: "Engineer", value: "engineer", short: "Engineer" },
           { name: "Intern", value: "intern", short: "Intern" },
-          { name: "None", value: "none", short: "None" }, // only when there is 2 employees in the employees array, i.e. a manager + 1
+          { name: "None", value: "none", short: "None" },
         ],
       },
     ];
@@ -110,7 +109,6 @@ const createEngineer = async () => {
   employees.push(engineer);
 };
 
-// create intern question array
 const createIntern = async () => {
   const internQuestions = [
     {
@@ -139,11 +137,10 @@ const createIntern = async () => {
     },
   ];
   const internAnswers = await inquirer.prompt(internQuestions);
-  // The intern answers as pushed into the employees array
+
   console.log(internAnswers);
   const intern = new Intern(internAnswers);
   employees.push(intern);
 };
 
-// Function call to initialize app
 init();
