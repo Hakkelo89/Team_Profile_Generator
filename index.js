@@ -7,6 +7,8 @@ const Employee = require("./src/lib/Employee");
 const Engineer = require("./src/lib/Engineer");
 const Intern = require("./src/lib/Intern");
 
+const employees = [];
+
 const getAnswers = async (questions) => {
   const answers = await inquirer.prompt(questions);
   return answers;
@@ -15,6 +17,7 @@ const getAnswers = async (questions) => {
 const init = async () => {
   await createManager();
 
+  let isTeamComplete = false;
   while (!isTeamComplete) {
     const employeeTypeQuestion = [
       {
@@ -49,25 +52,21 @@ const createManager = async () => {
       type: "input",
       message: "Enter manager name:",
       name: "name",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Enter employee ID:",
       name: "id",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Enter your office number:",
       name: "officeNumber",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Enter work email:",
       name: "email",
-      validate: validateInput,
     },
   ];
   const managerAnswers = await inquirer.prompt(managerQuestions);
@@ -82,25 +81,21 @@ const createEngineer = async () => {
       type: "input",
       message: "Please enter engineer name:",
       name: "name",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Please enter engineer ID:",
       name: "id",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Please enter engineer email:",
       name: "email",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Please enter engineer github profile:",
       name: "github",
-      validate: validateInput,
     },
   ];
   const engineerAnswers = await inquirer.prompt(engineerQuestions);
@@ -115,25 +110,29 @@ const createIntern = async () => {
       type: "input",
       message: "Enter intern name:",
       name: "name",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Enter intern email:",
       name: "email",
-      validate: validateInput,
+      validate: function (email) {
+        // Regex mail check (return true if valid mail)
+        return (
+          /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+            email
+          )
+        || "Error" 
+
     },
     {
       type: "input",
       message: "Enter intern ID:",
       name: "id",
-      validate: validateInput,
     },
     {
       type: "input",
       message: "Enter intern school name:",
       name: "school",
-      validate: validateInput,
     },
   ];
   const internAnswers = await inquirer.prompt(internQuestions);
