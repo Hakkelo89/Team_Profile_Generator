@@ -120,10 +120,11 @@ const createIntern = async () => {
         return (
           /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
             email
-          )
-        || "Error" 
-
+          ) || "Error"
+        );
+      },
     },
+
     {
       type: "input",
       message: "Enter intern ID:",
