@@ -20,7 +20,6 @@ const generateHTML = (employees) => {
       .filter((employee) => employee.getRole() === "Intern")
       .map((intern) => renderIntern(intern))
   );
-
   return renderFullMarkdown(HTML.join(""));
 };
 
@@ -53,7 +52,7 @@ const renderEngineer = (engineer) => {
   template = replaceTemplates(template, "id", engineer.getId());
   template = replaceTemplates(template, "role", engineer.getRole());
   template = replaceTemplates(template, "email", engineer.getEmail());
-  template = replaceTemplates(template, "github", engineer.getGithub());
+  template = replaceTemplates(template, "github", engineer.getGitHub());
   return template;
 };
 
