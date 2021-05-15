@@ -6,15 +6,7 @@ class Engineer extends Employee {
     this.github = github;
     this.role = "Engineer";
   }
-  getName() {
-    return this.name;
-  }
-  getId() {
-    return this.id;
-  }
-  getEmail() {
-    return this.email;
-  }
+
   getGitHub() {
     return this.github;
   }

@@ -5,45 +5,12 @@ const generateHTML = require("./src/utils/generateHTML");
 const Manager = require("./src/lib/Manager");
 const Engineer = require("./src/lib/Engineer");
 const Intern = require("./src/lib/Intern");
-const Employee = require("./src/lib/Employee");
 
 const employees = [];
 
 const getAnswers = async (questions) => {
   const answers = await inquirer.prompt(questions);
   return answers;
-};
-
-const init = async () => {
-  await createManager();
-
-  let isTeamComplete = false;
-  while (!isTeamComplete) {
-    const employeeTypeQuestion = [
-      {
-        type: "list",
-        message: "Please select the employee type you wish to add:",
-        name: "employeeType",
-        choices: [
-          { name: "Engineer", value: "engineer", short: "Engineer" },
-          { name: "Intern", value: "intern", short: "Intern" },
-          { name: "None", value: "none", short: "None" },
-        ],
-      },
-    ];
-    const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
-    if (employeeType === "none") {
-      isTeamComplete = true;
-      console.log(employees);
-    } else {
-      if (employeeType === "engineer") {
-        await createEngineer();
-      }
-      if (employeeType === "intern") {
-        await createIntern();
-      }
-    }
-  }
 };
 
 const createManager = async () => {
@@ -142,6 +109,38 @@ const createIntern = async () => {
   const intern = new Intern(internAnswers);
   employees.push(intern);
   generateHTML(employees);
+};
+
+const init = async () => {
+  await createManager();
+
+  let isTeamComplete = false;
+  while (!isTeamComplete) {
+    const employeeTypeQuestion = [
+      {
+        type: "list",
+        message: "Please select the employee type you wish to add:",
+        name: "employeeType",
+        choices: [
+          { name: "Engineer", value: "engineer", short: "Engineer" },
+          { name: "Intern", value: "intern", short: "Intern" },
+          { name: "None", value: "none", short: "None" },
+        ],
+      },
+    ];
+    const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
+    if (employeeType === "none") {
+      isTeamComplete = true;
+      generateHTML(employees);
+    } else {
+      if (employeeType === "engineer") {
+        await createEngineer();
+      }
+      if (employeeType === "intern") {
+        await createIntern();
+      }
+    }
+  }
 };
 
 init();

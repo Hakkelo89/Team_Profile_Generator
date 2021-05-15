@@ -1,23 +1,28 @@
+const fs = require("fs");
 const path = require("path");
-const templatesDir = path.resolve(__dirname, "../templates");
+const templatesDir = path.resolve(__dirname, "../../templates");
 
 const generateHTML = (employees) => {
   const HTML = [];
+  console.log(employees);
+
   HTML.push(
     employees
-      .filter((employee) => employee.getRole() === "manager")
+      .filter((employee) => employee.getRole() === "Manager")
       .map((manager) => renderManager(manager))
   );
   HTML.push(
     employees
-      .filter((employee) => employee.getRole() === "engineer")
+      .filter((employee) => employee.getRole() === "Engineer")
       .map((engineer) => renderEngineer(engineer))
   );
   HTML.push(
     employees
-      .filter((employee) => employee.getRole() === "intern")
+      .filter((employee) => employee.getRole() === "Intern")
       .map((intern) => renderIntern(intern))
   );
+
+  console.log(HTML, "generateHTML.js");
   return renderFullMarkdown(HTML.join(""));
 };
 
@@ -26,6 +31,7 @@ const renderManager = (manager) => {
     path.resolve(templatesDir, "manager.html"),
     "utf8"
   );
+
   template = replaceTemplates(template, "name", manager.getName());
   template = replaceTemplates(template, "id", manager.getId());
   template = replaceTemplates(template, "role", manager.getRole());
@@ -35,6 +41,7 @@ const renderManager = (manager) => {
     "officeNumber",
     manager.getOfficeNumber()
   );
+
   return template;
 };
 
@@ -48,7 +55,7 @@ const renderEngineer = (engineer) => {
   template = replaceTemplates(template, "id", engineer.getId());
   template = replaceTemplates(template, "role", engineer.getRole());
   template = replaceTemplates(template, "email", engineer.getEmail());
-  template = replaceTemplates(template, "github", manager.getGithub());
+  template = replaceTemplates(template, "github", engineer.getGithub());
   return template;
 };
 
@@ -71,11 +78,13 @@ const renderFullMarkdown = (HTML) => {
     path.resolve(templatesDir, "full-markdown.html"),
     "utf8"
   );
+  console.log(HTML, "HTML created");
   return replaceTemplates(template, "team", HTML);
 };
 
 const replaceTemplates = (template, placeholder, value) => {
   const pattern = new RegExp(`{{${placeholder}}}`, "gm");
+  console.log(pattern, value);
   return template.replace(pattern, value);
 };
 
