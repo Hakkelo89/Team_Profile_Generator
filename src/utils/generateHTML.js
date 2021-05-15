@@ -4,7 +4,6 @@ const templatesDir = path.resolve(__dirname, "../../templates");
 
 const generateHTML = (employees) => {
   const HTML = [];
-  console.log(employees);
 
   HTML.push(
     employees
@@ -22,7 +21,6 @@ const generateHTML = (employees) => {
       .map((intern) => renderIntern(intern))
   );
 
-  console.log(HTML, "generateHTML.js");
   return renderFullMarkdown(HTML.join(""));
 };
 
@@ -78,13 +76,13 @@ const renderFullMarkdown = (HTML) => {
     path.resolve(templatesDir, "full-markdown.html"),
     "utf8"
   );
-  console.log(HTML, "HTML created");
+
   return replaceTemplates(template, "team", HTML);
 };
 
 const replaceTemplates = (template, placeholder, value) => {
   const pattern = new RegExp(`{{${placeholder}}}`, "gm");
-  console.log(pattern, value);
+
   return template.replace(pattern, value);
 };
 

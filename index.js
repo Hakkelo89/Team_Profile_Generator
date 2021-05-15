@@ -5,6 +5,7 @@ const generateHTML = require("./src/utils/generateHTML");
 const Manager = require("./src/lib/Manager");
 const Engineer = require("./src/lib/Engineer");
 const Intern = require("./src/lib/Intern");
+const writeToFile = require("./writeToFile");
 
 const employees = [];
 
@@ -66,7 +67,7 @@ const createEngineer = async () => {
     },
   ];
   const engineerAnswers = await inquirer.prompt(engineerQuestions);
-  console.log(engineerAnswers);
+
   const engineer = new Engineer(engineerAnswers);
   employees.push(engineer);
 };
@@ -105,7 +106,6 @@ const createIntern = async () => {
   ];
   const internAnswers = await inquirer.prompt(internQuestions);
 
-  console.log(internAnswers);
   const intern = new Intern(internAnswers);
   employees.push(intern);
   generateHTML(employees);
@@ -132,6 +132,7 @@ const init = async () => {
     if (employeeType === "none") {
       isTeamComplete = true;
       generateHTML(employees);
+      console.log(HTML, "HTML");
     } else {
       if (employeeType === "engineer") {
         await createEngineer();
@@ -141,6 +142,7 @@ const init = async () => {
       }
     }
   }
+  writeToFile(HTML);
 };
 
 init();
