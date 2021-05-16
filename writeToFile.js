@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const writeToFile = (fileName, path) => {
+const writeToFile = (data, path) => {
   console.log("file created");
-  fs.writeFileSync(path, fileName, "utf-8");
+  fs.writeFileSync(path, data, "utf-8");
 };
 
 module.exports = writeToFile;

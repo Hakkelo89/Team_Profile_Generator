@@ -134,6 +134,7 @@ const init = async () => {
     if (employeeType === "none") {
       isTeamComplete = true;
       const HTML = generateHTML(employees);
+      console.log(HTML);
       writeToFile(HTML, outputPath);
     } else {
       if (employeeType === "engineer") {
