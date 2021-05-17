@@ -29,7 +29,7 @@ describe("Engineer class", () => {
       const engineer = new Engineer(mockEngineer);
       const actual = engineer.getGitHub();
 
-      expect(actual).toEqual(engineer.gitHub);
+      expect(actual).toEqual(engineer.github);
     });
 
     it("should get the role of the employee", () => {
