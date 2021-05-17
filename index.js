@@ -37,6 +37,14 @@ const createManager = async () => {
       type: "input",
       message: "Enter work email:",
       name: "email",
+      validate: function (email) {
+        // Regex mail check (return true if valid mail)
+        return (
+          /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+            email
+          ) || "Error"
+        );
+      },
     },
   ];
   const managerAnswers = await inquirer.prompt(managerQuestions);
@@ -61,6 +69,14 @@ const createEngineer = async () => {
       type: "input",
       message: "Please enter engineer email:",
       name: "email",
+      validate: function (email) {
+        // Regex mail check (return true if valid mail)
+        return (
+          /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+            email
+          ) || "Error"
+        );
+      },
     },
     {
       type: "input",
