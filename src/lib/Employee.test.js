@@ -1,39 +1,47 @@
 const Employee = require("./Employee");
 
-describe("Employee", () => {
+describe("Employee class", () => {
   const mockEmployee = {
-    name: "Bob",
-    id: 451,
-    email: "bob@codeworks.co.uk",
+    name: "Suraj",
+    id: "123",
+    email: "suraj@email.com",
   };
-  describe("constructor tests", () => {
-    test("should construct a new instance of an employee class", () => {
-      const employee = new Employee(mockEmployee);
-      expect(employee).toBeInstanceOf(Employee);
+  describe("Constructor tests", () => {
+    it("should create an instance of an Employee object", () => {
+      const actual = new Employee(mockEmployee);
+
+      expect(actual).toBeInstanceOf(Employee);
     });
-    test("should construct a new instance of an employee class with name, id, email", () => {
-      const employee = new Employee(mockEmployee);
-      expect(employee).toEqual({
-        name: "Bob",
-        id: 451,
-        email: "bob@codeworks.co.uk",
-      });
+
+    it("set the data properties in the constructor function", () => {
+      const actual = new Employee(mockEmployee);
+
+      expect(actual.name).toEqual("Suraj");
+      expect(actual.id).toEqual("123");
+      expect(actual.email).toEqual("suraj@email.com");
     });
   });
-  describe("method tests", () => {
-    test("should return id when the getId method is called", () => {
+
+  describe("Method tests", () => {
+    it("should get the value of name", () => {
       const employee = new Employee(mockEmployee);
-      expect(employee.getId()).toEqual(451);
+      const actual = employee.getName();
+
+      expect(actual).toEqual(employee.name);
     });
 
-    test("should return name when the getName method is called", () => {
+    it("should get the ID of the employee", () => {
       const employee = new Employee(mockEmployee);
-      expect(employee.getName()).toEqual("Bob");
+      const actual = employee.getId();
+
+      expect(actual).toEqual(employee.id);
     });
 
-    test("should return email when the getEmail method is called", () => {
+    it("should get the email of the employee", () => {
       const employee = new Employee(mockEmployee);
-      expect(employee.getEmail()).toEqual("bob@codeworks.co.uk");
+      const actual = employee.getEmail();
+
+      expect(actual).toEqual(employee.email);
     });
   });
 });
