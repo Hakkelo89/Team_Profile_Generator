@@ -48,7 +48,7 @@ npm i
 
 ## Link to the Video Recording
 
-Please click [here]() to view the demo.
+Please click [here](https://drive.google.com/file/d/1W3ecGNMnWNTUTq99wvG_OVguJLH746CO/view) to view the demo.
 
 ## Screenshot
 
