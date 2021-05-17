@@ -16,7 +16,7 @@
   - [Lunch the App](#lunch-the-app)
   - [License](#license)
   - [Link to the Video Recording](#link-to-the-video-recording)
-  - [Sample Generated HTML](#sample-generated-html)
+  - [Sample Team HTML](#sample-team-html)
   - [Screenshot](#screenshot)
   - [Contributors](#contributors)
   - [Tests with Coverage](#tests-with-coverage)
@@ -51,7 +51,7 @@ npm i
 
 Please click [here](https://drive.google.com/file/d/1W3ecGNMnWNTUTq99wvG_OVguJLH746CO/view) to view the demo.
 
-## Sample Generated HTML
+## Sample Team HTML
 
 Please click [here](https://github.com/Hakkelo89/Team_Profile_Generator/blob/main/output/team.html)
 
