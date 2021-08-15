@@ -29,7 +29,7 @@
 
 ## Installation
 
-The user should clone the repository from GitHub and download Node. This application also requires a file system and inquirer module. If testing is required, this application uses Jest.
+cd If testing is required, this application uses Jest.
 
 ```
 git clone https://github.com/Hakkelo89/Team_Profile_Generator

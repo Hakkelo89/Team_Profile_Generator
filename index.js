@@ -5,7 +5,7 @@ const generateHTML = require("./src/utils/generateHTML");
 const Manager = require("./src/lib/Manager");
 const Engineer = require("./src/lib/Engineer");
 const Intern = require("./src/lib/Intern");
-const writeToFile = require("./writeToFile");
+const writeToFile = require("./src/utils/writeToFile");
 
 const employees = [];
 const OUTPUT_DIR = path.resolve(__dirname, "output");
